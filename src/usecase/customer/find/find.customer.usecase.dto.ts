@@ -9,12 +9,14 @@ export interface InputFindCustomerDto {
   id: string;
 }
 
+//street: string, number: number, zip: string, city: string
 export interface OutputFindCustomerDto {
   id: string;
   name: string;
   address: {
     street: string;
     number: number;
-    zipcode: string;
+    zip: string;
+    city: string;
   }
 }
