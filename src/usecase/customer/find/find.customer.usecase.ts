@@ -6,7 +6,7 @@
  */
 
 import CustomerRepositoryInterface from "../../../domain/customer/repository/customer-repository.interface";
-import { InputFindCustomerDto, OutputFindCustomerDto } from "./find.customer.usecase.dto";
+import { InputFindCustomerDto, OutputFindCustomerDto } from "./find.customer.dto";
 
 export default class FindCustomerUseCase {
   private customerRepository: CustomerRepositoryInterface;
@@ -29,7 +29,5 @@ export default class FindCustomerUseCase {
         city: customer.Address.city
       },
     };
-
-
   }
 }

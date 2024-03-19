@@ -1,10 +1,9 @@
 /**
- * file: src/usecase/customer/find/find.customer.spec.ts
- * description: file responsible for the dto of the customer find use case.
- * data: 03/11/2024
+ * file: src/usecase/customer/find/find.customer.integration.spec.ts
+ * description: file responsible for the integration test of the customer find use case.
+ * data: 03/18/2024
  * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
-
 
 import { Sequelize } from "sequelize-typescript";
 import CustomerModel from "../../../infrastructure/customer/repository/sequelize/customer.model";
@@ -60,7 +59,7 @@ describe("Test find customer use case", () => {
       }
     };
 
-    const result = useCase.execute(input);
+    const result = await useCase.execute(input);
 
     expect(result).toEqual(output);
 
