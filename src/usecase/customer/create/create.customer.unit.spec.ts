@@ -1,9 +1,11 @@
 /**
  * file: src/usecase/customer/create/create.customer.unit.spec.ts
  * description: file responsible for the dto of the customer create use case.
- * data: 03/18/2024
+ * data: 03/19/2024
  * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
+
+import CustomerCreateUseCase from "./create.customer.usecase";
 
 const input = {
   name: 'Glaucia Lemos',
