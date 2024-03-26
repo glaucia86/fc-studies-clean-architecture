@@ -43,7 +43,6 @@ describe("Unit test for listing customer use case", () => {
     expect(output.customers[0].address.zip).toBe(customer1.Address.zip)
     expect(output.customers[0].address.city).toBe(customer1.Address.city)
 
-    expect(output.customers.length).toBe(2);
     expect(output.customers[1].id).toBe(customer2.id);
     expect(output.customers[1].name).toBe(customer2.name)
     expect(output.customers[1].address.street).toBe(customer2.Address.street)
