@@ -28,13 +28,13 @@ export default class Product implements ProductInterface {
     return this._name;
   }
 
+  get price(): number {
+    return this._price;
+  }
+
   changeProductName(name: string): void {
     this._name = name;
     this.validate();
-  }
-
-  get price(): number {
-    return this._price;
   }
 
   changeProductPrice(price: number): void {
