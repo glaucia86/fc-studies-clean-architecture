@@ -4,7 +4,7 @@
   "description": "A project to learn how to apply DDD concepts in a real case project.",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon --watch 'src/' --exec 'ts-node src/main.ts' -e ts",
+    "dev": "nodemon src/infrastructure/api/server.ts",
     "test": "npm run tsc -- --noEmit && jest",
     "tsc": "tsc"
   },
@@ -29,13 +29,16 @@
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "jest": "^29.7.0",
-    "nodemon": "^3.0.1",
+    "nodemon": "^3.1.0",
     "prettier": "^3.0.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "@types/express": "^4.17.21",
     "@types/uuid": "^9.0.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.35.0",
     "sequelize-typescript": "^2.1.5",
