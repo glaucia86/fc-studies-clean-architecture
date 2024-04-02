@@ -5,7 +5,6 @@
  * author: Glaucia Lemos <Twitter: @glaucia_lemos86>
  */
 
-import e from "express";
 import { app, sequelize } from "../express";
 import request from 'supertest';
 
@@ -38,5 +37,4 @@ describe('E2E test for: Customer', () => {
     expect(response.body.address.number).toBe(123);
     expect(response.body.address.zip).toBe('12345-678');
   });
-
 });
