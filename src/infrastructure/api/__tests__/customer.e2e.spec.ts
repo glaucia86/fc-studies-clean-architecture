@@ -47,4 +47,47 @@ describe('E2E test for: Customer', () => {
 
     expect(response.status).toBe(500);
   });
+
+  it('should list all customers', async() => {
+    const response = await request(app)
+      .post('/customer')
+      .send({
+        name: 'Glaucia',
+        address: {
+          street: 'Rua 1',
+          city: 'Rio de Janeiro',
+          number: 123,
+          zip: '12345-678'
+        },
+      });
+    
+    expect(response.status).toBe(200);
+
+    const response2 = await request(app)
+      .post('/customer')
+      .send({
+        name: 'John',
+        address: {
+          street: 'Rua 2',
+          city: 'São Paulo',
+          number: 456,
+          zip: '86543-678'
+        },
+      });
+
+    expect(response2.status).toBe(200);
+
+    const listResponse = await request(app).get('/customer').send();
+    
+    expect(listResponse.status).toBe(200);
+    expect(listResponse.body.customers.length).toBe(2);  
+
+    const customer = listResponse.body.customers[0];
+    expect(customer.name).toBe('Glaucia');
+    expect(customer.address.street).toBe('Rua 1');
+
+    const customer2 = listResponse.body.customers[1];
+    expect(customer2.name).toBe('John');
+    expect(customer2.address.street).toBe('Rua 2');
+  });
 });
