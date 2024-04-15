@@ -11,19 +11,19 @@ describe("Product unit tests", () => {
   it("should return throw error when 'id' is empty", () => {
     expect(() => {
       new Product("", "mobile", 100);
-    }).toThrowError("Id is required");
+    }).toThrowError("product: Id is required");
   });
 
   it("should return throw error when 'Product name' is empty", () => {
     expect(() => {
       new Product("1", "", 100);
-    }).toThrowError("Product name is required");
+    }).toThrowError("product: Name is required");
   });
 
   it("should return throw error when 'Product Price' is less than zero", () => {
     expect(() => {
       new Product("1", "mobile", -1);
-    }).toThrowError("Price must be greater than zero");
+    }).toThrowError("product: Price must be greater than zero");
   });
 
   it("should change Product Name", () => {
@@ -42,5 +42,11 @@ describe("Product unit tests", () => {
 
       expect(product.price).toBe(200);
     })
+  });
+
+  it("should throw error when product is invalid", () => {
+    expect(() => {
+      new Product("", "", -1);
+    }).toThrowError("product: Id is required,product: Name is required,product: Price must be greater than zero");
   });
 });
