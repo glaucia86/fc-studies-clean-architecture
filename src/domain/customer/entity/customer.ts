@@ -17,7 +17,7 @@ export default class Customer extends Entity {
 
   constructor(id: string, name: string) {
     super(id);
-
+    this._id = id;
     this._name = name;
     this.validate();
 
