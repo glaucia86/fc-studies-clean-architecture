@@ -9,28 +9,30 @@ import { toXML } from "jstoxml";
 import { OutputListCustomerDto } from "../../../usecase/customer/list/list.customer.dto";
 
 export default class CustomerPresenter {
-
-  static toXML(data: OutputListCustomerDto): string {
+  static listXML(data: OutputListCustomerDto): string {
     const xmlOption = {
       header: true,
-      ident: "   ",
+      indent: "  ",
       newline: "\n",
-      allowEmpty: true
+      allowEmpty: true,
     };
 
-    return toXML({
-      customers: {
-        customer: data.customers.map(customer => ({
-          id: customer.id,
-          name: customer.name,
-          address: {
-            street: customer.address.street,
-            number: customer.address.number,
-            city: customer.address.city,
-            zip: customer.address.zip
-          },
-        })),
+    return toXML(
+      {
+        customers: {
+          customer: data.customers.map((customer) => ({
+            id: customer.id,
+            name: customer.name,
+            address: {
+              street: customer.address.street,
+              number: customer.address.number,
+              zip: customer.address.zip,
+              city: customer.address.city,
+            },
+          })),
+        },
       },
-    }, xmlOption);
+      xmlOption
+    );
   }
 }
